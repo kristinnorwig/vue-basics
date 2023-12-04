@@ -14,13 +14,14 @@ Vue.createApp({
           console.log(jsonData);
           console.log(jsonData);
           this.users = jsonData.map((contact) => {
+            // mit map bekommt jeder user einen  connectionStatus mit "Connect"
             contact.connectionStatus = "Connect";
             return contact;
           });
         });
     },
 
-    getNewSuggestion() {
+    getOneContact() {
       return fetch(
         "https://dummy-apis.netlify.app/api/contact-suggestions?count=1"
       )
@@ -29,16 +30,13 @@ Vue.createApp({
           const newContact = jsonData[0];
           newContact.connectionStatus = "Connect";
           this.users.push(newContact);
-          // innerHTML = "";
           return newContact;
         });
     },
 
     removeContact(contact) {
-      this.users = this.users.filter((c) => c !== contact);
-      this.getNewSuggestion().then((newContact) => {
-        this.users.push(newContact);
-      });
+      this.users = this.users.filter((currContact) => currContact !== contact); //  filtert den user aus this.users, der gleich dem übergebenen contact ist => neues Array dass den USer nicht enthält
+      this.getOneContact();
     },
 
     toggleConnectStatus(contact) {
