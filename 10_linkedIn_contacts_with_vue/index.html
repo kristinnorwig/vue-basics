@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body id="app">
+    <header>
+        <p class="p-header">{{this.count + "pending invitations"}}</p>
+    </header>
+    <main>
+        <article v-for="contact in users" :key="contact.id">
+            <header>
+                <figure class="bg-img-figure">
+                    <button class="remove-btn" v-on:click="removeContact(contact)"> </button>
+                    <img class="bg-img" :src="contact.backgroundImage">
+                </figure>
+                <figure class="profile-pic-figure">
+                    <img class="profile-pic" :src="contact.picture">
+                </figure>
+            </header>
+            <section class="name-section">
+                <p class="title">{{contact.name.title}}</p>
+                <p class="firstname">{{contact.name.first}}</p>
+                <p class="lastname">{{contact.name.last}}</p>
+            </section>
+            <p class="profession">{{contact.title}}</p>
+            <p class="mutual-con">{{contact.mutualConnections + " " + "mutual connections"}}</p>
+            <section class="connect-section">
+                <button class="connect-btn"
+                    v-on:click="toggleConnectStatus(contact)">{{contact.connectionStatus}}</button>
+            </section>
+        </article>
+
+    </main>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
