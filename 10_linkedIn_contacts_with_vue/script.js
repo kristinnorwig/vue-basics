@@ -14,7 +14,7 @@ Vue.createApp({
           console.log(jsonData);
           console.log(jsonData);
           this.users = jsonData.map((contact) => {
-            // mit map bekommt jeder user einen  connectionStatus mit "Connect"
+            // mit map bekommt jeder user einen connectionStatus mit "Connect"
             contact.connectionStatus = "Connect";
             return contact;
           });

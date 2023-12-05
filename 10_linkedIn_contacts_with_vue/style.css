@@ -38,10 +38,6 @@ article {
 .bg-img-figure {
   margin: 0;
   position: relative;
-
-  /* Ausmaße bestimmen höhe und breite des bg-images
-  flex: 20rem ;
-  overflow: hidden;*/
 }
 
 .bg-img {
@@ -72,14 +68,12 @@ article {
   gap: 1rem;
 }
 
-.title {
-  font-size: 1.2rem;
-}
-
+.title,
 .firstname,
 .lastname {
   font-size: 1.2rem;
   font-weight: 700;
+  margin-bottom: 0;
 }
 
 .profession {

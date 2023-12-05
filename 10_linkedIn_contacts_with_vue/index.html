@@ -4,13 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>LinkedIn</title>
     <link rel="stylesheet" href="style.css" />
 </head>
 
 <body id="app">
     <header>
-        <p class="p-header">{{this.count + "pending invitations"}}</p>
+        <p class="p-header">{{this.count + " " +"pending invitations"}}</p>
     </header>
     <main>
         <article v-for="contact in users" :key="contact.id">
