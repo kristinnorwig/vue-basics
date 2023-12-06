@@ -32,11 +32,12 @@
                 </thead>
                 <tbody>
                     <tr v-for="{ title, isbn, author, publisher, price, numPages } of filteredBooks" :key="isbn">
+                        <!-- destructuring assignment -->
                         <td>{{ title }}</td>
                         <td>{{ isbn }}</td>
                         <td>{{ author }}</td>
                         <td>{{ publisher }}</td>
-                        <td><span class="strike">{{ price}}</span>{{ showDiscountedPrice}}</td>
+                        <td><span class="strike">{{ price}}</span>{{ showDiscountedPrice(price)}}</td>
                         <td>{{ numPages }}</td>
                     </tr>
                 </tbody>

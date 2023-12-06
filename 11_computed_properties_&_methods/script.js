@@ -557,7 +557,8 @@ Vue.createApp({
         "isBookmarked",
       ];
 
-      // Alle Spalten erhalten und dann die ausgeschlossenen Spalten filtern, wenn column nicht in dontShowThisColumns enthalten in Included filtern
+      // Alle Spalten erhalten und dann die ausgeschlossenen Spalten filtern,
+      // wenn column nicht in dontShowThisColumns enthalten in Included filtern
       const allColumns = Object.keys(this.books[0]);
       const showThisColumns = allColumns.filter(
         (column) => !dontShowThisColumns.includes(column)
@@ -566,15 +567,24 @@ Vue.createApp({
       return showThisColumns;
     },
 
-    showDiscountedPrice() {
-      return "$" + this.books.price * 0.8;
-    },
-
     filteredBooks() {
       const oReillyMediaBooks = this.books.filter(
         (book) => book.publisher === "O'Reilly Media"
       );
       return oReillyMediaBooks;
+    },
+  },
+  methods: {
+    showDiscountedPrice(price) {
+      let onlyNmbr = price
+        .split("")
+        .filter((i) => i !== "$")
+        .join("");
+      onlyNmbr = Number(onlyNmbr);
+
+      const discountPrice = (onlyNmbr / 100) * 20;
+
+      return "$" + (onlyNmbr - discountPrice).toFixed(2);
     },
   },
 }).mount("#app");
