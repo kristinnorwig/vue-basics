@@ -7,13 +7,8 @@ Vue.createApp({
   methods: {
     toggleDarkMode() {
       this.darkMode = !this.darkMode;
-
-      if (this.darkMode) {
-        document.body.classList.add("body-dark");
-        // return "body-dark", "button-dark"
-      } else {
-        document.body.classList.remove("body-dark");
-      }
+      // aktueller wert von darkMode wird umgekehrt
+      // Wechsel zwischen Aktivität und Deaktivität
 
       if (document.title === "Good Morning") {
         document.title = "Good Night";
